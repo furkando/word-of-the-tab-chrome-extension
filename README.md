@@ -1,4 +1,4 @@
-# word-of-day-chrome-extension
+# word-of-the-day-chrome-extension
 
 ## Description
 
@@ -22,3 +22,4 @@ This is a chrome extension that displays a new word every day. The word is fetch
 - [ ] Fetch similar words from thesaurus
 - [ ] Add examples for the word
 - [ ] Show translation direction
+- [ ] Update icons
