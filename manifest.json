@@ -1,0 +1,21 @@
+{
+  "name": "Word Of Day",
+  "description": "Word of day to learn English based on your Translate history",
+  "version": "1.0",
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["storage"],
+  "icons": {
+    "16": "icon-16.png",
+    "48": "icon-48.png",
+    "128": "icon-128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://translate.google.com.tr/history"],
+      "js": ["content.js"]
+    }
+  ]
+}
