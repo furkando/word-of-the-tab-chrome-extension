@@ -1,4 +1,4 @@
-# word-of-the-day-chrome-extension
+# word-of-the-tab-chrome-extension
 
 ## Description
 
