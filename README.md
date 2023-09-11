@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a chrome extension that displays a new word every day. The word is fetched from the Google Translate history.
+This is a chrome extension that displays a new word every new tab. The word is fetched from the Google Translate history.
 
 ## Installation
 

@@ -1,6 +1,6 @@
 {
-  "name": "Word Of The Day",
-  "description": "Word of the day to learn English based on your Google translate history",
+  "name": "Word Of The Tab",
+  "description": "Word of the tab to learn English based on your Google translate history and track your daily habits",
   "version": "1.0",
   "manifest_version": 3,
   "background": {
