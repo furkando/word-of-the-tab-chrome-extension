@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>The Dashboard</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Catamaran"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+
+  <body>
+    <main>
+      <div class="clock-container">
+        <translation-component></translation-component>
+        <div class="clock">
+          <my-clock></my-clock>
+        </div>
+      </div>
+      <div class="habit-tracker">
+        <habit-tracker></habit-tracker>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
+  <script src="./src/habit-tracker/main.js"></script>
+  <script src="./src/clock/main.js"></script>
+  <script src="./src/translation/main.js"></script>
+</html>

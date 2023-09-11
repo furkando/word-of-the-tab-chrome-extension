@@ -1,0 +1,75 @@
+html {
+  background: url("./images/blue-lake.png") no-repeat center center fixed;
+  background-size: cover;
+  background-blend-mode: multiply;
+}
+body {
+  font-family: Catamaran;
+  background: rgba(37, 33, 33, 0.143);
+  min-height: 100vh;
+  min-width: 100vw;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+  --font-color: #666;
+  color: var(--font-color);
+}
+header,
+main,
+footer {
+  display: flex;
+}
+
+header {
+  justify-content: end;
+}
+
+/* // hour and calendars are 2 div under main they should centered first vertically then horizontally so left of the page should be clock and right of the page should be calendars */
+
+main {
+  width: 100vw;
+  height: 100vh;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+main h1 {
+  font-size: 34px;
+}
+
+habit-tracker-items {
+  min-width: 250px;
+  max-width: 800px;
+}
+
+.translation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+}
+
+.clock {
+  width: 335px;
+}
+
+.clock-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+.habit-tracker {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
