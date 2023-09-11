@@ -26,4 +26,4 @@ This is a chrome extension that displays a new word every new tab. The word is f
 
 ## Screenshots
 
-![New tab](<Screen Shot 2023-09-11 at 2.46.05 PM.png>)
+![New tab](<images/example.png>)
