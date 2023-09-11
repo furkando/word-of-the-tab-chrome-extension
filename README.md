@@ -15,11 +15,15 @@ This is a chrome extension that displays a new word every new tab. The word is f
 
 ## To-Do
 
-- [ ] Store words in local storage
-- [ ] Add popup to display the word
-- [ ] Mark words as known when the user clicks on the popup
+- [x] Store words in local storage
+- [x] Add new tab to display the word
 - [ ] Add a button to fetch new words
 - [ ] Fetch similar words from thesaurus
 - [ ] Add examples for the word
-- [ ] Show translation direction
-- [ ] Update icons
+- [x] Show translation direction
+- [x] Update icons
+
+
+## Screenshots
+
+![New tab](<Screen Shot 2023-09-11 at 2.46.05 PM.png>)
