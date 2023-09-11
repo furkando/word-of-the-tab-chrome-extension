@@ -4,7 +4,6 @@ class MyClock extends HTMLElement {
   
   :host {
     width: 100%;
-    display: flex;
   }
   
   #clock {
@@ -40,7 +39,10 @@ class MyClock extends HTMLElement {
 
   init() {
     const setTime = () => {
-      const localeTimeString = new Date().toLocaleTimeString();
+      const localeTimeString = new Date().toLocaleTimeString(
+        {},
+        { hour12: false }
+      );
       this.shadowRoot.getElementById("clock").innerHTML = localeTimeString;
     };
     setTime();

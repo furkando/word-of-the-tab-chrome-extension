@@ -106,9 +106,9 @@ const styles = () => `
 
   #monthLabel {
     margin: 0;
+    margin-bottom: 10px;
     cursor: default;
     color: #fafafa;
-    display: inline;
     padding: 0 1em;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -239,9 +239,9 @@ const styles = () => `
 
   #monthLabel {
     margin: 0;
+    margin-bottom: 10px;
     cursor: default;
     color: #fafafa;
-    display: inline;
     padding: 0 1em;
     -webkit-user-select: none;
     -moz-user-select: none;

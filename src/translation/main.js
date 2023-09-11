@@ -717,6 +717,7 @@ class TranslationComponent extends HTMLElement {
           border-radius: 5px;
           position: relative;
           min-width: 320px;
+          margin-bottom: 12px;
         }
 
         .source-language,

@@ -45,17 +45,11 @@ habit-tracker-items {
   max-width: 800px;
 }
 
-.translation {
+.clock {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: row;
-  width: 100%;
-  height: 100%;
-}
-
-.clock {
-  width: 335px;
 }
 
 .clock-container {
@@ -72,4 +66,16 @@ habit-tracker-items {
   justify-content: center;
   align-items: center;
   width: 50%;
+}
+
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+  }
+  .clock-container {
+    width: 100%;
+  }
+  .habit-tracker {
+    width: 100%;
+  }
 }
