@@ -17,13 +17,11 @@ This is a chrome extension that displays a new word every new tab. The word is f
 
 - [x] Store words in local storage
 - [x] Add new tab to display the word
-- [ ] Add a button to fetch new words
-- [ ] Fetch similar words from thesaurus
-- [ ] Add examples for the word
 - [x] Show translation direction
 - [x] Update icons
-
+- [ ] Add a button to fetch new words
+- [ ] Add examples for the word
 
 ## Screenshots
 
-![New tab](<images/example.png>)
+![New tab](images/example.png)

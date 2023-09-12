@@ -1,3 +1,6 @@
+const links = () => `
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+`;
 const styles = () => `
 <style>
 :host {
@@ -97,8 +100,12 @@ const styles = () => `
 
   #month {
     margin: 0 auto;
-    display: inline;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
   }
+
   #month div {
     display: inline;
     cursor: pointer;
@@ -106,7 +113,6 @@ const styles = () => `
 
   #monthLabel {
     margin: 0;
-    margin-bottom: 10px;
     cursor: default;
     color: #fafafa;
     padding: 0 1em;
@@ -114,6 +120,10 @@ const styles = () => `
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+  }
+
+  #previousMonth, #nextMonth {
+    color: #fafafa;
   }
 
   #info {
@@ -230,7 +240,10 @@ const styles = () => `
 
   #month {
     margin: 0 auto;
-    display: inline;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
   }
   #month div {
     display: inline;
@@ -239,7 +252,6 @@ const styles = () => `
 
   #monthLabel {
     margin: 0;
-    margin-bottom: 10px;
     cursor: default;
     color: #fafafa;
     padding: 0 1em;
@@ -247,6 +259,10 @@ const styles = () => `
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+  }
+
+  #previousMonth, #nextMonth {
+    color: #fafafa;
   }
 
   #info {
@@ -311,11 +327,12 @@ const styles = () => `
 </style>
 `;
 const template = () => `
+${links()}
 ${styles()}
 <div id="month">
-  <div id="previousMonth"><i class="fa fa-arrow-left"></i></div>
+  <div id="previousMonth"><i class="fas fa-arrow-left"></i></div>
   <h1 id="monthLabel"></h1>
-  <div id="nextMonth"><i class="fa fa-arrow-right"></i></div>
+  <div id="nextMonth"><i class="fas fa-arrow-right"></i></div>
 </div>
 <div id="daysLabels"></div>
 <div id="calendar"></div>
@@ -364,8 +381,7 @@ class HabitTracker extends HTMLElement {
     const CURRENT_DATE = new Date();
 
     let selectedMonth = CURRENT_DATE.getMonth();
-    let availableMonths = [CURRENT_DATE.getMonth()];
-    let translations = [];
+    let availableMonths = [selectedMonth];
 
     let EXAMPLE_TASKS = {
       0: { color: "#FDE74C", label: "Wake up at 7:00" },
@@ -380,19 +396,6 @@ class HabitTracker extends HTMLElement {
       createDateInfo();
       createCalendarStructure();
       createInfoStructure();
-    }
-
-    async function loadTranslationsAsync() {
-      try {
-        const result = await new Promise(function (resolve, reject) {
-          chrome.storage.local.get(["translations"], function (items) {
-            resolve(items);
-          });
-        });
-        return result;
-      } catch (error) {
-        console.log(error);
-      }
     }
 
     var checkLocalStorage = async () => {
@@ -434,7 +437,6 @@ class HabitTracker extends HTMLElement {
         }
       }
 
-      translations = await loadTranslationsAsync();
       availableMonths = Object.keys(JSON.parse(window.localStorage.data));
     };
 
@@ -487,7 +489,13 @@ class HabitTracker extends HTMLElement {
                   ? `0${dayNumber + 1}`
                   : dayNumber + 1
                 : "";
-            setColorTaskBackground(daySquare[j], j, currentData[dayNumber][j]);
+            if (currentData[dayNumber] !== undefined) {
+              setColorTaskBackground(
+                daySquare[j],
+                j,
+                currentData[dayNumber][j]
+              );
+            }
           }
         }
       });
@@ -692,7 +700,8 @@ class HabitTracker extends HTMLElement {
     };
 
     var getTaskStatus = (day, task) => {
-      let currentData = getCurrentLocalStorageData().data;
+      const currentData = getCurrentLocalStorageData().data;
+      if (currentData[day] === undefined) return false;
       return currentData[day][task];
     };
 
@@ -752,7 +761,15 @@ class HabitTracker extends HTMLElement {
     };
 
     var getCurrentLocalStorageData = () =>
-      JSON.parse(window.localStorage.data)[selectedMonth];
+      JSON.parse(window.localStorage.data)[selectedMonth] || {
+        tasks: EXAMPLE_TASKS,
+        data: Object.fromEntries(
+          Array.from({ length: getDaysFromCurrentMonth() }, (_, i) => [
+            i,
+            Object.fromEntries(Array.from({ length: 5 }, (_, i) => [i, false])),
+          ])
+        ),
+      };
 
     var getTaskSquares = () =>
       this.shadowRoot.querySelectorAll("#taskLabels > li input[type='color']");

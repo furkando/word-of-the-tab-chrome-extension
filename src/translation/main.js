@@ -757,7 +757,8 @@ class TranslationComponent extends HTMLElement {
           position: absolute;
           top: 50%;
           left: 50%;
-          transform: translate(-50%, -50%); 
+          transform: translate(-50%, -50%);
+          cursor: pointer;
         }
         
         .arrow::before {
@@ -793,6 +794,10 @@ class TranslationComponent extends HTMLElement {
 
   connectedCallback() {
     this.shadowRoot.innerHTML = this.template;
+    const arrowElement = this.shadowRoot.querySelector(".arrow");
+    arrowElement.addEventListener("click", () => {
+      this.loadAndDisplayTranslation();
+    });
     this.loadAndDisplayTranslation();
   }
 
